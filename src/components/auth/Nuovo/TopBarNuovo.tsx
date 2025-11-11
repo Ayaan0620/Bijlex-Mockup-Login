@@ -24,24 +24,24 @@ export const TopBar = () => {
         h="100%"
         px="xl"
       >
-        {/* School logo with white/peachy circular background */}
+        {/* School logo with white/peachy pill-shaped background */}
         <Box
           style={{
             position: 'relative',
-            padding: '8px',
+            padding: '8px 16px', // CHANGED: Adjusted padding for the new shape
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
           }}
         >
-          {/* Circular white/peachy background with coral accent */}
+          {/* Pill-shaped white/peachy background */}
           <Box
             style={{
               position: 'absolute',
-              width: '68px',
-              height: '68px',
+              width: '120px',  // CHANGED: Wider than height
+              height: '55px',  // CHANGED: Shorter
               background: 'linear-gradient(135deg, #FFE8E0 0%, #FFF5F0 50%, #FFFFFF 100%)',
-              borderRadius: '50%',
+              borderRadius: '999px', // CHANGED: Creates the pill shape
               zIndex: -1,
               boxShadow: '0 0 25px rgba(222, 69, 92, 0.2), 0 4px 12px rgba(0, 0, 0, 0.15)',
             }}

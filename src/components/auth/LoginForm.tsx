@@ -4,14 +4,14 @@ import { detectSchool } from "../../utils/schoolDetection";
 import { TopBar as TopBarNuovo } from "./Nuovo/TopBarNuovo";
 import { MascotSection as MascotSectionNuovo } from "./Nuovo/MascotSectionNuovo";
 import { TopBar as TopBarYuverta } from "./Yuverta/TopBarYuverta";
-import { MascotSection as MascotSectionYuverta } from "./Yuverta/MascotSectionYuverta";
+import { MascotSectionYuverta as MascotSectionYuverta } from "./Yuverta/MascotSectionYuverta";
 
 export const LoginForm = () => {
   const school = detectSchool();
 
   // Select the appropriate components based on school
-  const TopBar = school === 'nuovo' ? TopBarNuovo : TopBarYuverta;
-  const MascotSection = school === 'nuovo' ? MascotSectionNuovo : MascotSectionYuverta;
+  const TopBar = school === 'yuverta' ? TopBarNuovo : TopBarYuverta;
+  const MascotSection = school === 'yuverta' ? MascotSectionNuovo : MascotSectionYuverta;
 
   return (
     <>

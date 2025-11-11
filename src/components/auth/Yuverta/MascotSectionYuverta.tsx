@@ -1,49 +1,34 @@
 import { Flex, Paper, Text, Box } from "@mantine/core";
 
-import yuvertaLogo from "../../../assets/yuverta/image.png";
-import mascotWaving from "../../../assets/BijlexSkins_Mascotte Body Wave_Blank.png";
+import mascotLeft from "@/assets/images/mascot/mascot-waving-left.svg";
+import mascotRight from "@/assets/images/mascot/mascot-waving-right.svg";
 
-/**
- * School-specific branding configuration
- */
-const schoolBranding: Record<string, {
-  primaryColor: string;
-  secondaryColor: string;
-  accentColor: string;
-  name: string;
-  heading: string;
-  description: string;
-  logoPath: string;
-  mascotPath: string;
-}> = {
-  'localhost': {
-    primaryColor: '#00088F',
-    secondaryColor: '#2DF200',
-    accentColor: '#2DF200',
-    name: 'Yuverta',
-    heading: 'Beter leren doe je Bijlex',
-    description: 'Bijlex is er voor alle leerlingen die het beste uit zichzelf willen halen. Met een persoonlijk feedbacksysteem zorgen we ervoor dat iedereen toegang krijgt tot op maat gemaakte ondersteuning die gericht is op jouw gemaakte fouten.',
-    logoPath: yuvertaLogo,
-    mascotPath: mascotWaving,
-  },
+const mascot = {
+  left: mascotLeft,
+  right: mascotRight,
 };
 
+type Position = keyof typeof mascot;
+
+/**
+ * Yuverta branding configuration
+ */
+const branding = {
+  primaryColor: '#00088F',
+  secondaryColor: '#2DF200',
+  accentColor: '#2DF200',
+  name: 'Yuverta',
+  heading: 'Beter leren doe je Bijlex',
+  description: 'Bijlex is er voor alle leerlingen die het beste uit zichzelf willen halen. Met een persoonlijk feedbacksysteem zorgen we ervoor dat iedereen toegang krijgt tot op maat gemaakte ondersteuning die gericht is op jouw gemaakte fouten.',
+  logoPath: 'https://duurzaamheidindeklas.nl/wp-content/uploads/2025/07/Yuverta-scaled-1.png',
+};
 
 interface Props {
-  position: 'left' | 'right';
+  position: Position;
 }
 
-export const MascotSection = ({ position: _position }: Props) => {
-  const getBranding = () => {
-    // Return a default for server-side rendering or if hostname not found
-    if (typeof window === 'undefined') {
-      return schoolBranding['localhost'];
-    }
-    const hostname = window.location.hostname;
-    return schoolBranding[hostname] || schoolBranding['localhost'];
-  };
-
-  const branding = getBranding();
+export const MascotSectionYuverta = ({ position }: Props) => {
+  const mascotImage = mascot[position];
 
   return (
     <Paper
@@ -183,7 +168,7 @@ export const MascotSection = ({ position: _position }: Props) => {
             {/* Multi-layered glow */}
             <Box style={{ position: 'absolute', width: '180%', height: '180%', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: `radial-gradient(circle, ${branding.accentColor}28 0%, transparent 65%)`, animation: 'refinedGlow 4.5s ease-in-out infinite', zIndex: -1, filter: 'blur(28px)' }} />
             <Box style={{ position: 'absolute', width: '230%', height: '230%', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: `radial-gradient(circle, ${branding.accentColor}14 0%, transparent 65%)`, animation: 'refinedGlow 5.5s ease-in-out infinite 0.7s', zIndex: -2, filter: 'blur(38px)' }} />
-            <img src={branding.mascotPath} alt="Bijlex Mascot" style={{ width: 'clamp(160px, 14vw, 220px)', height: 'auto', filter: `drop-shadow(0 12px 40px ${branding.accentColor}42)` }} />
+            <img src={mascotImage} alt="Bijlex Mascot" style={{ width: 'clamp(160px, 14vw, 220px)', height: 'auto', filter: `drop-shadow(0 12px 40px ${branding.accentColor}42)` }} />
           </Box>
 
           {/* Logo */}
@@ -253,8 +238,6 @@ export const MascotSection = ({ position: _position }: Props) => {
         @keyframes mascotFloat {
           0%, 100% { transform: translate(0, 0) rotate(0deg); }
           25% { transform: translate(-9px, -13px) rotate(-1.2deg); }
-          50% { transform: translate(6px, -19px) rotate(0.6deg); }
-          75% { transform: translate(-11px, -9px) rotate(-0.6deg); }
         }
         @keyframes refinedGlow {
           0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.62; }
