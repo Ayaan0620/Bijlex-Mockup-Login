@@ -1,58 +1,44 @@
 import { Flex, Paper, Text, Box } from "@mantine/core";
 
-/**
- * School-specific branding configuration
- */
-const schoolBranding: Record<string, {
-  primaryColor: string;
-  lightBlue: string;
-  greenAccent: string;
-  coralAccent: string;
-  orangeAccent: string;
-  darkNavy: string;
-  name: string;
-  heading: string;
-  description: string;
-  logoPath: string;
-  mascotPath: string;
-  circleLogoPath: string;
-}> = {
-  'localhost': {
-    primaryColor: '#222894',
-    lightBlue: '#6B9CFF',
-    greenAccent: '#2BCC87',
-    coralAccent: '#DE455C',
-    orangeAccent: '#F06A5E',
-    darkNavy: '#1A1F5C',
-    name: 'NUOVO',
-    heading: 'Beter leren doe je Bijlex',
-    description: 'Bijlex is er voor alle leerlingen die het beste uit zichzelf willen halen. Met een persoonlijk feedbacksysteem zorgen we dat iedereen toegang krijgt tot op maat gemaakte ondersteuning die gericht is op jouw gemaakte fouten.',
-    logoPath: '/src/assets/nuovo/image.png',
-    mascotPath: '/src/assets/BijlexSkins_Mascotte Body Wave_Blank.png',
-    circleLogoPath: '/src/assets/nuovo/NuovoCircle.png',
-  },
+import mascotLeft from "@/assets/images/mascot/mascot-waving-left.svg";
+import mascotRight from "@/assets/images/mascot/mascot-waving-right.svg";
+import nuovoLogo from "@/assets/nuovo/image.png";
+import nuovoCircle from "@/assets/nuovo/NuovoCircle.png";
+
+const mascot = {
+  left: mascotLeft,
+  right: mascotRight,
+};
+
+type Position = keyof typeof mascot;
+
+const branding = {
+  primaryColor: '#222894',
+  lightBlue: '#6B9CFF',
+  greenAccent: '#2BCC87',
+  coralAccent: '#DE455C',
+  orangeAccent: '#F06A5E',
+  darkNavy: '#1A1F5C',
+  name: 'NUOVO',
+  heading: 'Beter leren doe je Bijlex',
+  description: 'Bijlex is er voor alle leerlingen die het beste uit zichzelf willen halen. Met een persoonlijk feedbacksysteem zorgen we dat iedereen toegang krijgt tot op maat gemaakte ondersteuning die gericht is op jouw gemaakte fouten.',
+  logoPath: nuovoLogo,
+  circleLogoPath: nuovoCircle,
 };
 
 interface Props {
-  position: 'left' | 'right';
+  position: Position;
 }
 
-export const MascotSection = ({ position: _position }: Props) => {
-  const getBranding = () => {
-    if (typeof window === 'undefined') return schoolBranding['localhost'];
-    const hostname = window.location.hostname;
-    return schoolBranding[hostname] || schoolBranding['localhost'];
-  };
-
-  const branding = getBranding();
+export const MascotSectionNuovo = ({ position }: Props) => {
+  const mascotImage = mascot[position];
 
   return (
     <Paper
       shadow="sm"
       flex={1}
-      px="md"
-      py="xl"
-      visibleFrom="md"
+      px={{ base: 'xs', sm: 'md' }}
+      py={{ base: 'md', sm: 'xl' }}
       style={{
         background: `
           radial-gradient(ellipse at 30% 20%, ${branding.primaryColor}dd 0%, ${branding.darkNavy} 70%),
@@ -62,9 +48,9 @@ export const MascotSection = ({ position: _position }: Props) => {
         overflow: 'hidden',
         fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif",
         borderRadius: 0,
+        minHeight: '300px',
       }}
     >
-      {/* Background Circle Patterns */}
       <Box style={{ position: 'absolute', top: '-12%', left: '-10%', width: 'clamp(350px, 30vw, 500px)', height: 'clamp(350px, 30vw, 500px)', zIndex: 1, opacity: 0.35, animation: 'nuovoCircleSpin 80s linear infinite' }}>
         <img src={branding.circleLogoPath} alt="NUOVO Circle" style={{ width: '100%', height: '100%', objectFit: 'contain', filter: 'blur(1.5px) drop-shadow(0 10px 40px rgba(34, 40, 148, 0.3))' }} />
       </Box>
@@ -75,12 +61,11 @@ export const MascotSection = ({ position: _position }: Props) => {
         <img src={branding.circleLogoPath} alt="NUOVO Circle" style={{ width: '100%', height: '100%', objectFit: 'contain', filter: 'blur(1.5px) drop-shadow(0 10px 40px rgba(34, 40, 148, 0.3))' }} />
       </Box>
 
-      {/* SCATTERED DECORATIVE ELEMENTS - REVISED (4 Shapes, Less Blur, Repositioned) */}
       <Box
         style={{
           position: 'absolute',
-          top: '35%', // MOVED
-          left: '8%',  // MOVED
+          top: '35%',
+          left: '8%',
           width: 'clamp(80px, 7vw, 110px)',
           height: 'clamp(80px, 7vw, 110px)',
           background: branding.greenAccent,
@@ -90,15 +75,15 @@ export const MascotSection = ({ position: _position }: Props) => {
           animation: 'squareFloat1 24s ease-in-out infinite',
           boxShadow: `0 6px 28px ${branding.greenAccent}20`,
           zIndex: 2,
-          filter: 'blur(4px)', // CHANGED: Less blur
+          filter: 'blur(4px)',
         }}
       />
 
       <Box
         style={{
           position: 'absolute',
-          bottom: '20%', // MOVED
-          left: '15%',   // MOVED
+          bottom: '20%',
+          left: '15%',
           width: 'clamp(90px, 8vw, 130px)',
           height: 'clamp(90px, 8vw, 130px)',
           borderRadius: '50%',
@@ -107,15 +92,15 @@ export const MascotSection = ({ position: _position }: Props) => {
           animation: 'floatGentle 20s ease-in-out infinite',
           boxShadow: `0 8px 32px ${branding.coralAccent}25`,
           zIndex: 2,
-          filter: 'blur(3px)', // CHANGED: Less blur
+          filter: 'blur(3px)',
         }}
       />
-      
+
       <Box
         style={{
           position: 'absolute',
-          top: '15%',   // MOVED
-          right: '40%', // MOVED
+          top: '15%',
+          right: '40%',
           width: 'clamp(60px, 5vw, 90px)',
           height: 'clamp(60px, 5vw, 90px)',
           borderRadius: '50%',
@@ -124,15 +109,15 @@ export const MascotSection = ({ position: _position }: Props) => {
           animation: 'floatGentle2 18s ease-in-out infinite',
           boxShadow: `0 8px 32px ${branding.orangeAccent}25`,
           zIndex: 2,
-          filter: 'blur(3px)', // CHANGED: Less blur
+          filter: 'blur(3px)',
         }}
       />
-      
+
        <Box
         style={{
           position: 'absolute',
-          bottom: '30%', // MOVED
-          right: '20%',  // MOVED
+          bottom: '30%',
+          right: '20%',
           width: 'clamp(50px, 4vw, 75px)',
           height: 'clamp(50px, 4vw, 75px)',
           background: branding.orangeAccent,
@@ -142,42 +127,34 @@ export const MascotSection = ({ position: _position }: Props) => {
           animation: 'squareFloat3 26s ease-in-out infinite',
           boxShadow: `0 6px 26px ${branding.orangeAccent}18`,
           zIndex: 2,
-          filter: 'blur(4px)', // CHANGED: Less blur
+          filter: 'blur(4px)',
         }}
       />
 
-      {/* STAR ACCENTS */}
       <Box style={{ position: 'absolute', top: '18%', left: '28%', fontSize: 'clamp(1.5rem, 2vw, 2.4rem)', color: branding.greenAccent, opacity: 0.4, textShadow: `0 0 20px ${branding.greenAccent}50`, fontWeight: 'bold', animation: 'starTwinkle1 6s ease-in-out infinite', zIndex: 2 }}>✦</Box>
       <Box style={{ position: 'absolute', bottom: '28%', left: '20%', fontSize: 'clamp(1.3rem, 1.8vw, 2.2rem)', color: branding.coralAccent, opacity: 0.38, textShadow: `0 0 18px ${branding.coralAccent}48`, fontWeight: 'bold', animation: 'starTwinkle2 7s ease-in-out infinite', zIndex: 2 }}>✦</Box>
       <Box style={{ position: 'absolute', top: '55%', right: '15%', fontSize: 'clamp(1.4rem, 1.9vw, 2.3rem)', color: branding.lightBlue, opacity: 0.42, textShadow: `0 0 22px ${branding.lightBlue}52`, fontWeight: 'bold', animation: 'starTwinkle3 6.5s ease-in-out infinite', zIndex: 2 }}>✦</Box>
 
-      {/* Main content container */}
-      <Flex direction="column" align="center" justify="center" h="100%" gap="lg" style={{ position: 'relative', zIndex: 10 }}>
-        {/* Logo and Mascot Row */}
-        <Flex align="center" justify="center" gap="xl" wrap="wrap" style={{ marginBottom: '1rem' }}>
-          {/* Mascot with glow */}
-          <Box style={{ position: 'relative', animation: 'mascotFloat 8s ease-in-out infinite' }}>
+      <Flex direction="column" align="center" justify="center" h="100%" gap={{ base: 'sm', md: 'lg' }} style={{ position: 'relative', zIndex: 10 }} py={{ base: 'md', md: '0' }}>
+        <Flex align="center" justify="center" gap={{ base: 'md', md: 'xl' }} wrap="wrap" style={{ marginBottom: 'clamp(0.5rem, 2vw, 1rem)' }}>
+          <Box style={{ position: 'relative', animation: 'mascotFloat 8s ease-in-out infinite' }} display={{ base: 'none', sm: 'block' }}>
             <Box style={{ position: 'absolute', width: '180%', height: '180%', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: `radial-gradient(circle, ${branding.lightBlue}28 0%, transparent 65%)`, animation: 'refinedGlow 4.5s ease-in-out infinite', zIndex: -1, filter: 'blur(28px)' }} />
             <Box style={{ position: 'absolute', width: '230%', height: '230%', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: `radial-gradient(circle, ${branding.greenAccent}14 0%, transparent 65%)`, animation: 'refinedGlow 5.5s ease-in-out infinite 0.7s', zIndex: -2, filter: 'blur(38px)' }} />
-            <img src={branding.mascotPath} alt="Bijlex Mascot" style={{ width: 'clamp(160px, 14vw, 220px)', height: 'auto', filter: `drop-shadow(0 12px 40px ${branding.lightBlue}42)` }} />
+            <img src={mascotImage} alt="Bijlex Mascot" style={{ width: 'clamp(120px, 14vw, 220px)', height: 'auto', filter: `drop-shadow(0 12px 40px ${branding.lightBlue}42)` }} />
           </Box>
-          {/* Logo with PILL SHAPE background */}
-          <Box style={{ position: 'relative', padding: '20px 40px', animation: 'slideInRight 0.8s ease-out, logoFloat 9.5s ease-in-out 0.8s infinite' }}>
-            <Box style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 'clamp(280px, 22vw, 400px)', height: 'clamp(160px, 12vw, 220px)', background: `linear-gradient(135deg, #FFE8E0 0%, #FFF5F0 50%, #FFFFFF 100%)`, borderRadius: '999px', zIndex: -1, boxShadow: `0 0 60px rgba(222, 69, 92, 0.25), 0 15px 50px rgba(0,0,0,0.25), inset 0 2px 0 rgba(255,255,255,0.8)` }} />
-            <img src={branding.logoPath} alt={`${branding.name} Logo`} style={{ width: 'clamp(180px, 14vw, 280px)', height: 'auto', position: 'relative', display: 'block', filter: 'brightness(1.05) contrast(1.05) drop-shadow(0 4px 16px rgba(0,0,0,0.18))' }} />
+          <Box style={{ position: 'relative', padding: 'clamp(10px 20px, 3vw, 20px 40px)', animation: 'slideInRight 0.8s ease-out, logoFloat 9.5s ease-in-out 0.8s infinite' }}>
+            <Box style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 'clamp(200px, 22vw, 400px)', height: 'clamp(100px, 12vw, 220px)', background: `linear-gradient(135deg, #FFE8E0 0%, #FFF5F0 50%, #FFFFFF 100%)`, borderRadius: '999px', zIndex: -1, boxShadow: `0 0 60px rgba(222, 69, 92, 0.25), 0 15px 50px rgba(0,0,0,0.25), inset 0 2px 0 rgba(255,255,255,0.8)` }} />
+            <img src={branding.logoPath} alt={`${branding.name} Logo`} style={{ width: 'clamp(140px, 14vw, 280px)', height: 'auto', position: 'relative', display: 'block', filter: 'brightness(1.05) contrast(1.05) drop-shadow(0 4px 16px rgba(0,0,0,0.18))' }} />
           </Box>
         </Flex>
-        {/* Heading */}
-        <Text component="h2" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', color: branding.greenAccent, textAlign: 'center', fontWeight: 800, fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif", letterSpacing: '-0.03em', marginBottom: '1.5rem', filter: `drop-shadow(0 2px 28px rgba(0, 0, 0, 0.42)) drop-shadow(0 0 48px ${branding.greenAccent}52)` }}>
+        <Text component="h2" style={{ fontSize: 'clamp(1.5rem, 4vw, 3.2rem)', color: branding.greenAccent, textAlign: 'center', fontWeight: 800, fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif", letterSpacing: '-0.03em', marginBottom: 'clamp(0.5rem, 2vw, 1.5rem)', filter: `drop-shadow(0 2px 28px rgba(0, 0, 0, 0.42)) drop-shadow(0 0 48px ${branding.greenAccent}52)`, padding: '0 1rem' }}>
           Beter leren doe je{' '}
           <span style={{ color: branding.orangeAccent, filter: `drop-shadow(0 0 35px ${branding.orangeAccent}50)` }}>Bijlex</span>
         </Text>
-        {/* Description */}
-        <Text style={{ fontSize: 'clamp(1.05rem, 1.9vw, 1.3rem)', color: '#FFFFFF', textAlign: 'center', maxWidth: '700px', lineHeight: 1.75, opacity: 0.94, fontWeight: 400, fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif", letterSpacing: '0.015em', textShadow: `0 2px 14px rgba(0, 0, 0, 0.26), 0 0 25px ${branding.coralAccent}15` }}>
+        <Text style={{ fontSize: 'clamp(0.9rem, 1.9vw, 1.3rem)', color: '#FFFFFF', textAlign: 'center', maxWidth: '700px', lineHeight: 1.75, opacity: 0.94, fontWeight: 400, fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif", letterSpacing: '0.015em', textShadow: `0 2px 14px rgba(0, 0, 0, 0.26), 0 0 25px ${branding.coralAccent}15`, padding: '0 1rem' }} display={{ base: 'none', sm: 'block' }}>
           {branding.description}
         </Text>
       </Flex>
-      {/* Animations */}
       <style>{`
         @keyframes nuovoCircleSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         @keyframes floatGentle { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-8px, -12px); } }

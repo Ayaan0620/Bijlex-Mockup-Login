@@ -1,7 +1,7 @@
 import { Box, Flex } from "@mantine/core";
 
-import yuvertaLogo from "../../../assets/yuverta/image.png";
-import bijlexLogo from "../../../assets/bijlexLogo.webp";
+import yuvertaLogo from "@/assets/yuverta/image.png";
+import bijlexLogo from "@/assets/bijlexLogo.webp";
 
 export const TopBar = () => {
   return (
@@ -11,7 +11,7 @@ export const TopBar = () => {
         top: 0,
         left: 0,
         right: 0,
-        height: '70px',
+        height: 'clamp(60px, 10vw, 70px)',
         background: '#1a1a1a',
         borderBottom: '1px solid #2a2a2a',
         zIndex: 100,
@@ -22,16 +22,14 @@ export const TopBar = () => {
         align="center"
         justify="space-between"
         h="100%"
-        px="xl"
+        px={{ base: 'sm', md: 'xl' }}
       >
-        {/* Yuverta logo with green tilted background */}
         <Box
           style={{
             position: 'relative',
-            padding: '8px 20px',
+            padding: 'clamp(6px 14px, 2vw, 8px 20px)',
           }}
         >
-          {/* Tilted green background */}
           <Box
             style={{
               position: 'absolute',
@@ -45,12 +43,12 @@ export const TopBar = () => {
               boxShadow: '0 0 20px rgba(45, 242, 0, 0.4)',
             }}
           />
-          
+
           <img
             src={yuvertaLogo}
             alt="Yuverta Logo"
             style={{
-              height: '30px',
+              height: 'clamp(24px, 4vw, 30px)',
               width: 'auto',
               position: 'relative',
               display: 'block',
@@ -58,12 +56,11 @@ export const TopBar = () => {
           />
         </Box>
 
-        {/* Bijlex logo on the right */}
         <img
           src={bijlexLogo}
           alt="Bijlex Logo"
           style={{
-            height: '60px',
+            height: 'clamp(40px, 7vw, 60px)',
             width: 'auto',
           }}
         />

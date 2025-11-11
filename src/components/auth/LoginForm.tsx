@@ -1,33 +1,30 @@
 import { Flex, Box } from "@mantine/core";
-import { LoginFormSection } from "./LoginFormSection";
-import { detectSchool } from "../../utils/schoolDetection";
-import { TopBar as TopBarNuovo } from "./Nuovo/TopBarNuovo";
-import { MascotSection as MascotSectionNuovo } from "./Nuovo/MascotSectionNuovo";
-import { TopBar as TopBarYuverta } from "./Yuverta/TopBarYuverta";
-import { MascotSectionYuverta as MascotSectionYuverta } from "./Yuverta/MascotSectionYuverta";
+import { LoginFormSection } from "@/components/auth/LoginFormSection";
+import { detectSchool } from "@/utils/schoolDetection";
+import { TopBar as TopBarNuovo } from "@/components/auth/Nuovo/TopBarNuovo";
+import { MascotSectionNuovo } from "@/components/auth/Nuovo/MascotSectionNuovo";
+import { TopBar as TopBarYuverta } from "@/components/auth/Yuverta/TopBarYuverta";
+import { MascotSectionYuverta } from "@/components/auth/Yuverta/MascotSectionYuverta";
 
 export const LoginForm = () => {
   const school = detectSchool();
 
-  // Select the appropriate components based on school
-  const TopBar = school === 'yuverta' ? TopBarNuovo : TopBarYuverta;
-  const MascotSection = school === 'yuverta' ? MascotSectionNuovo : MascotSectionYuverta;
+  const TopBar = school === 'nuovo' ? TopBarNuovo : TopBarYuverta;
+  const MascotSection = school === 'nuovo' ? MascotSectionNuovo : MascotSectionYuverta;
 
   return (
     <>
-      {/* Top navigation bar */}
       <TopBar />
-
-      {/* Main content - 50/50 split with padding for top bar */}
-      <Box style={{ paddingTop: '70px', height: '100vh' }}>
-        <Flex h="calc(100vh - 70px)" w="100vw">
-          {/* Left side - Mascot/Branding (50%) */}
-          <Flex flex="1" style={{ minWidth: 0 }}>
+      <Box style={{ paddingTop: '70px', minHeight: '100vh' }}>
+        <Flex
+          direction={{ base: 'column', md: 'row' }}
+          h={{ base: 'auto', md: 'calc(100vh - 70px)' }}
+          w="100vw"
+        >
+          <Flex flex={{ base: 'none', md: 1 }} w={{ base: '100%', md: 'auto' }} style={{ minWidth: 0 }}>
             <MascotSection position="right" />
           </Flex>
-
-          {/* Right side - Login Form (50%) */}
-          <Flex flex="1" style={{ minWidth: 0 }}>
+          <Flex flex={{ base: 'none', md: 1 }} w={{ base: '100%', md: 'auto' }} style={{ minWidth: 0 }}>
             <LoginFormSection />
           </Flex>
         </Flex>

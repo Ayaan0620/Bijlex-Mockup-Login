@@ -34,9 +34,8 @@ export const MascotSectionYuverta = ({ position }: Props) => {
     <Paper
       shadow="sm"
       flex={1}
-      px="md"
-      py="xl"
-      visibleFrom="md"
+      px={{ base: 'xs', sm: 'md' }}
+      py={{ base: 'md', sm: 'xl' }}
       style={{
         background: `
           radial-gradient(ellipse at 30% 20%, ${branding.primaryColor}f0 0%, ${branding.primaryColor} 50%),
@@ -46,11 +45,10 @@ export const MascotSectionYuverta = ({ position }: Props) => {
         overflow: 'hidden',
         fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif",
         borderRadius: 0,
+        minHeight: '300px',
       }}
     >
-      {/* BACKGROUND DECORATIVE SHAPES */}
 
-      {/* CIRCLES */}
       <Box
         style={{
           position: 'absolute',
@@ -78,7 +76,6 @@ export const MascotSectionYuverta = ({ position }: Props) => {
         }}
       />
 
-      {/* SQUARES */}
       <Box
         style={{
           position: 'absolute',
@@ -110,7 +107,6 @@ export const MascotSectionYuverta = ({ position }: Props) => {
         }}
       />
 
-      {/* TRIANGLES */}
       <Box
         style={{
           position: 'absolute',
@@ -140,56 +136,48 @@ export const MascotSectionYuverta = ({ position }: Props) => {
         }}
       />
 
-      {/* STARS */}
       <Box style={{ position: 'absolute', top: '9%', left: '32%', fontSize: 'clamp(1.9rem, 2.5vw, 3rem)', color: branding.accentColor, opacity: 0.26, textShadow: `0 0 28px ${branding.accentColor}50`, fontWeight: 'bold', animation: 'starTwinkle1 6.5s ease-in-out infinite' }}>✦</Box>
       <Box style={{ position: 'absolute', top: '55%', left: '18%', fontSize: 'clamp(1.7rem, 2.3vw, 2.8rem)', color: branding.accentColor, opacity: 0.24, textShadow: `0 0 26px ${branding.accentColor}48`, fontWeight: 'bold', animation: 'starTwinkle2 7.5s ease-in-out infinite' }}>✦</Box>
       <Box style={{ position: 'absolute', top: '70%', right: '8%', fontSize: 'clamp(2rem, 2.6vw, 3.2rem)', color: branding.accentColor, opacity: 0.28, textShadow: `0 0 30px ${branding.accentColor}52`, fontWeight: 'bold', animation: 'starTwinkle3 8s ease-in-out infinite' }}>✦</Box>
       <Box style={{ position: 'absolute', bottom: '8%', left: '35%', fontSize: 'clamp(1.8rem, 2.4vw, 2.9rem)', color: branding.accentColor, opacity: 0.25, textShadow: `0 0 27px ${branding.accentColor}49`, fontWeight: 'bold', animation: 'starTwinkle4 7s ease-in-out infinite' }}>✦</Box>
 
-      {/* MAIN CONTENT CONTAINER */}
       <Flex
         direction="column"
         align="center"
         justify="center"
         h="100%"
-        gap="lg"
+        gap={{ base: 'sm', md: 'lg' }}
         style={{ position: 'relative', zIndex: 10 }}
+        py={{ base: 'md', md: '0' }}
       >
-        {/* Logo and Mascot Row */}
         <Flex
           align="center"
           justify="center"
-          gap="xl"
+          gap={{ base: 'md', md: 'xl' }}
           wrap="wrap"
-          style={{ marginBottom: '1rem' }}
+          style={{ marginBottom: 'clamp(0.5rem, 2vw, 1rem)' }}
         >
-          {/* Mascot */}
-          <Box style={{ position: 'relative', animation: 'mascotFloat 8s ease-in-out infinite' }}>
-            {/* Multi-layered glow */}
+          <Box style={{ position: 'relative', animation: 'mascotFloat 8s ease-in-out infinite' }} display={{ base: 'none', sm: 'block' }}>
             <Box style={{ position: 'absolute', width: '180%', height: '180%', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: `radial-gradient(circle, ${branding.accentColor}28 0%, transparent 65%)`, animation: 'refinedGlow 4.5s ease-in-out infinite', zIndex: -1, filter: 'blur(28px)' }} />
             <Box style={{ position: 'absolute', width: '230%', height: '230%', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: `radial-gradient(circle, ${branding.accentColor}14 0%, transparent 65%)`, animation: 'refinedGlow 5.5s ease-in-out infinite 0.7s', zIndex: -2, filter: 'blur(38px)' }} />
-            <img src={mascotImage} alt="Bijlex Mascot" style={{ width: 'clamp(160px, 14vw, 220px)', height: 'auto', filter: `drop-shadow(0 12px 40px ${branding.accentColor}42)` }} />
+            <img src={mascotImage} alt="Bijlex Mascot" style={{ width: 'clamp(120px, 14vw, 220px)', height: 'auto', filter: `drop-shadow(0 12px 40px ${branding.accentColor}42)` }} />
           </Box>
 
-          {/* Logo */}
-          <Box style={{ position: 'relative', padding: '40px 50px', animation: 'slideInRight 0.8s ease-out, logoFloat 9.5s ease-in-out 0.8s infinite' }}>
-            <Box style={{ position: 'absolute', top: '20px', left: '20px', right: '20px', bottom: '20px', background: branding.accentColor, transform: 'skewY(-2deg)', zIndex: -1, boxShadow: `0 0 55px ${branding.accentColor}72, 0 14px 48px rgba(0,0,0,0.32)` }} />
-            <img src={branding.logoPath} alt={`${branding.name} Logo`} style={{ width: 'clamp(200px, 16vw, 320px)', height: 'auto', position: 'relative', display: 'block', filter: 'brightness(1.1) contrast(1.1) drop-shadow(0 6px 22px rgba(0,0,0,0.26))' }} />
+          <Box style={{ position: 'relative', padding: 'clamp(20px 30px, 4vw, 40px 50px)', animation: 'slideInRight 0.8s ease-out, logoFloat 9.5s ease-in-out 0.8s infinite' }}>
+            <Box style={{ position: 'absolute', top: '10px', left: '10px', right: '10px', bottom: '10px', background: branding.accentColor, transform: 'skewY(-2deg)', zIndex: -1, boxShadow: `0 0 55px ${branding.accentColor}72, 0 14px 48px rgba(0,0,0,0.32)` }} />
+            <img src={branding.logoPath} alt={`${branding.name} Logo`} style={{ width: 'clamp(150px, 16vw, 320px)', height: 'auto', position: 'relative', display: 'block', filter: 'brightness(1.1) contrast(1.1) drop-shadow(0 6px 22px rgba(0,0,0,0.26))' }} />
           </Box>
         </Flex>
 
-        {/* Heading */}
-        <Text style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', color: branding.accentColor, textAlign: 'center', fontWeight: 800, fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif", letterSpacing: '-0.03em', marginBottom: '1.5rem', textShadow: `0 2px 28px rgba(0, 0, 0, 0.42), 0 0 48px ${branding.accentColor}52, 0 0 75px ${branding.accentColor}32` }}>
+        <Text style={{ fontSize: 'clamp(1.5rem, 4vw, 3.2rem)', color: branding.accentColor, textAlign: 'center', fontWeight: 800, fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif", letterSpacing: '-0.03em', marginBottom: 'clamp(0.5rem, 2vw, 1.5rem)', textShadow: `0 2px 28px rgba(0, 0, 0, 0.42), 0 0 48px ${branding.accentColor}52, 0 0 75px ${branding.accentColor}32`, padding: '0 1rem' }}>
           {branding.heading}
         </Text>
 
-        {/* Description */}
-        <Text style={{ fontSize: 'clamp(1.05rem, 1.9vw, 1.3rem)', color: '#FFFFFF', textAlign: 'center', maxWidth: '700px', lineHeight: 1.75, opacity: 0.94, fontWeight: 400, fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif", letterSpacing: '0.015em', textShadow: '0 2px 14px rgba(0, 0, 0, 0.26)' }}>
+        <Text style={{ fontSize: 'clamp(0.9rem, 1.9vw, 1.3rem)', color: '#FFFFFF', textAlign: 'center', maxWidth: '700px', lineHeight: 1.75, opacity: 0.94, fontWeight: 400, fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif", letterSpacing: '0.015em', textShadow: '0 2px 14px rgba(0, 0, 0, 0.26)', padding: '0 1rem' }} display={{ base: 'none', sm: 'block' }}>
           {branding.description}
         </Text>
       </Flex>
 
-      {/* Animation Keyframes */}
       <style>{`
         @keyframes circleFloat1 {
           0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.78; }
