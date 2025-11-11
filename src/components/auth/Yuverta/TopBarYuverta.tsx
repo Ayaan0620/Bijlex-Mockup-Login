@@ -1,5 +1,8 @@
 import { Box, Flex } from "@mantine/core";
 
+import yuvertaLogo from "../../../assets/yuverta/image.png";
+import bijlexLogo from "../../../assets/bijlexLogo.webp";
+
 export const TopBar = () => {
   return (
     <Box
@@ -44,7 +47,7 @@ export const TopBar = () => {
           />
           
           <img
-            src="/src/assets/image.png"
+            src={yuvertaLogo}
             alt="Yuverta Logo"
             style={{
               height: '30px',
@@ -57,7 +60,7 @@ export const TopBar = () => {
 
         {/* Bijlex logo on the right */}
         <img
-          src="/src/assets/bijlexLogo.webp"
+          src={bijlexLogo}
           alt="Bijlex Logo"
           style={{
             height: '60px',
