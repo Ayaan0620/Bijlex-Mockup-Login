@@ -153,18 +153,18 @@ export const MascotSectionYuverta = ({ position }: Props) => {
         <Flex
           align="center"
           justify="center"
-          gap={{ base: 'md', md: 'xl' }}
+          gap={{ base: '3rem', sm: '4rem', md: '5rem' }}
           wrap="wrap"
           style={{ marginBottom: 'clamp(0.5rem, 2vw, 1rem)' }}
         >
           <Box style={{ position: 'relative', animation: 'mascotFloat 8s ease-in-out infinite' }} display={{ base: 'none', sm: 'block' }}>
-            <Box style={{ position: 'absolute', width: '180%', height: '180%', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: `radial-gradient(circle, ${branding.accentColor}28 0%, transparent 65%)`, animation: 'refinedGlow 4.5s ease-in-out infinite', zIndex: -1, filter: 'blur(28px)' }} />
-            <Box style={{ position: 'absolute', width: '230%', height: '230%', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: `radial-gradient(circle, ${branding.accentColor}14 0%, transparent 65%)`, animation: 'refinedGlow 5.5s ease-in-out infinite 0.7s', zIndex: -2, filter: 'blur(38px)' }} />
+            <Box style={{ position: 'absolute', width: '140%', height: '140%', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: `radial-gradient(circle, ${branding.accentColor}28 0%, transparent 65%)`, animation: 'refinedGlow 4.5s ease-in-out infinite', zIndex: -1, filter: 'blur(28px)' }} />
+            <Box style={{ position: 'absolute', width: '170%', height: '170%', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: `radial-gradient(circle, ${branding.accentColor}14 0%, transparent 65%)`, animation: 'refinedGlow 5.5s ease-in-out infinite 0.7s', zIndex: -2, filter: 'blur(38px)' }} />
             <img src={mascotImage} alt="Bijlex Mascot" style={{ width: 'clamp(120px, 14vw, 220px)', height: 'auto', filter: `drop-shadow(0 12px 40px ${branding.accentColor}42)` }} />
           </Box>
 
           <Box style={{ position: 'relative', padding: 'clamp(20px 30px, 4vw, 40px 50px)', animation: 'slideInRight 0.8s ease-out, logoFloat 9.5s ease-in-out 0.8s infinite' }}>
-            <Box style={{ position: 'absolute', top: '10px', left: '10px', right: '10px', bottom: '10px', background: branding.accentColor, transform: 'skewY(-2deg)', zIndex: -1, boxShadow: `0 0 55px ${branding.accentColor}72, 0 14px 48px rgba(0,0,0,0.32)` }} />
+            <Box style={{ position: 'absolute', top: '0px', left: '0px', right: '0px', bottom: '0px', background: branding.accentColor, transform: 'skewY(-2deg)', zIndex: -1, boxShadow: `0 0 55px ${branding.accentColor}72, 0 14px 48px rgba(0,0,0,0.32)` }} />
             <img src={branding.logoPath} alt={`${branding.name} Logo`} style={{ width: 'clamp(150px, 16vw, 320px)', height: 'auto', position: 'relative', display: 'block', filter: 'brightness(1.1) contrast(1.1) drop-shadow(0 6px 22px rgba(0,0,0,0.26))' }} />
           </Box>
         </Flex>

@@ -136,10 +136,10 @@ export const MascotSectionNuovo = ({ position }: Props) => {
       <Box style={{ position: 'absolute', top: '55%', right: '15%', fontSize: 'clamp(1.4rem, 1.9vw, 2.3rem)', color: branding.lightBlue, opacity: 0.42, textShadow: `0 0 22px ${branding.lightBlue}52`, fontWeight: 'bold', animation: 'starTwinkle3 6.5s ease-in-out infinite', zIndex: 2 }}>✦</Box>
 
       <Flex direction="column" align="center" justify="center" h="100%" gap={{ base: 'sm', md: 'lg' }} style={{ position: 'relative', zIndex: 10 }} py={{ base: 'md', md: '0' }}>
-        <Flex align="center" justify="center" gap={{ base: 'md', md: 'xl' }} wrap="wrap" style={{ marginBottom: 'clamp(0.5rem, 2vw, 1rem)' }}>
+        <Flex align="center" justify="center" gap={{ base: '3rem', sm: '4rem', md: '5rem' }} wrap="wrap" style={{ marginBottom: 'clamp(0.5rem, 2vw, 1rem)' }}>
           <Box style={{ position: 'relative', animation: 'mascotFloat 8s ease-in-out infinite' }} display={{ base: 'none', sm: 'block' }}>
-            <Box style={{ position: 'absolute', width: '180%', height: '180%', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: `radial-gradient(circle, ${branding.lightBlue}28 0%, transparent 65%)`, animation: 'refinedGlow 4.5s ease-in-out infinite', zIndex: -1, filter: 'blur(28px)' }} />
-            <Box style={{ position: 'absolute', width: '230%', height: '230%', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: `radial-gradient(circle, ${branding.greenAccent}14 0%, transparent 65%)`, animation: 'refinedGlow 5.5s ease-in-out infinite 0.7s', zIndex: -2, filter: 'blur(38px)' }} />
+            <Box style={{ position: 'absolute', width: '140%', height: '140%', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: `radial-gradient(circle, ${branding.lightBlue}28 0%, transparent 65%)`, animation: 'refinedGlow 4.5s ease-in-out infinite', zIndex: -1, filter: 'blur(28px)' }} />
+            <Box style={{ position: 'absolute', width: '170%', height: '170%', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: `radial-gradient(circle, ${branding.greenAccent}14 0%, transparent 65%)`, animation: 'refinedGlow 5.5s ease-in-out infinite 0.7s', zIndex: -2, filter: 'blur(38px)' }} />
             <img src={mascotImage} alt="Bijlex Mascot" style={{ width: 'clamp(120px, 14vw, 220px)', height: 'auto', filter: `drop-shadow(0 12px 40px ${branding.lightBlue}42)` }} />
           </Box>
           <Box style={{ position: 'relative', padding: 'clamp(10px 20px, 3vw, 20px 40px)', animation: 'slideInRight 0.8s ease-out, logoFloat 9.5s ease-in-out 0.8s infinite' }}>

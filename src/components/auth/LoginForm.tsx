@@ -9,8 +9,8 @@ import { MascotSectionYuverta } from "@/components/auth/Yuverta/MascotSectionYuv
 export const LoginForm = () => {
   const school = detectSchool();
 
-  const TopBar = school === 'nuovo' ? TopBarNuovo : TopBarYuverta;
-  const MascotSection = school === 'nuovo' ? MascotSectionNuovo : MascotSectionYuverta;
+  const TopBar = school === 'yuverta' ? TopBarNuovo : TopBarYuverta;
+  const MascotSection = school === 'yuverta' ? MascotSectionNuovo : MascotSectionYuverta;
 
   return (
     <>
