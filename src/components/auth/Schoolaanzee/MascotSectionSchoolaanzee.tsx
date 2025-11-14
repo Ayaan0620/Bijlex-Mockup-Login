@@ -2,13 +2,17 @@ import { Flex, Paper, Text, Box } from "@mantine/core";
 
 import mascotLeft from "@/assets/images/mascot/mascot-waving-left.svg";
 import mascotRight from "@/assets/images/mascot/mascot-waving-right.svg";
-import sazLogo from "../../../assets/schoolaanzee/schoolaanzee.png";
-import saz1Logo from "../../../assets/schoolaanzee/schoolaanzeelogo.png";
+import scholanzeeLogo from "../../../assets/schoolaanzee/schoolaanzee.png";
+import scholanzeeCircleLogo from "../../../assets/schoolaanzee/schoolaanzeelogo.png";
 
-const mascot = { left: mascotLeft, right: mascotRight };
+const mascot = {
+  left: mascotLeft,
+  right: mascotRight,
+};
+
 type Position = keyof typeof mascot;
 
-const BRAND = {
+const branding = {
   green: "#4BA241",
   greenDark: "#3c8735",
   greenLight: "#73c469",
@@ -24,9 +28,13 @@ const BRAND = {
   heading: "Beter leren doe je Bijlex",
   description:
     "Bijlex is er voor alle leerlingen die het beste uit zichzelf willen halen. Met een persoonlijk feedbacksysteem zorgen we ervoor dat iedereen toegang krijgt tot op maat gemaakte ondersteuning die gericht is op jouw gemaakte fouten.",
+  logoPath: scholanzeeLogo,
+  circleLogoPath: scholanzeeCircleLogo,
 };
 
-interface Props { position: Position }
+interface Props {
+  position: Position;
+}
 
 export const MascotSectionSchoolaanzee = ({ position }: Props) => {
   const mascotImage = mascot[position];
@@ -43,9 +51,9 @@ export const MascotSectionSchoolaanzee = ({ position }: Props) => {
         overflow: "hidden",
         borderRadius: 0,
         // fris groen canvas met subtiele radial highlights
-        background: `radial-gradient(1200px 600px at -10% -10%, ${BRAND.greenLight}55 0%, transparent 50%),
-                     radial-gradient(900px 500px at 110% 110%, ${BRAND.greenLight}40 0%, transparent 55%),
-                     ${BRAND.green}`,
+        background: `radial-gradient(1200px 600px at -10% -10%, ${branding.greenLight}55 0%, transparent 50%),
+                     radial-gradient(900px 500px at 110% 110%, ${branding.greenLight}40 0%, transparent 55%),
+                     ${branding.green}`,
         fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif",
       }}
     >
@@ -62,14 +70,14 @@ export const MascotSectionSchoolaanzee = ({ position }: Props) => {
         background: "rgba(255,255,255,0.12)", filter: "blur(2px)"
       }} />
 
-      {/* Zwevende saz1Logo's die draaien - alle opacity 1 */}
+      {/* Zwevende circle logo's die draaien - alle opacity 1 */}
       <Box style={{
         position: "absolute", top: "8%", right: "25%",
         width: 80, height: 80,
         animation: "logoRotateFloat1 50s linear infinite",
         opacity: 1,
       }}>
-        <img src={saz1Logo} alt="Logo" style={{ width: "100%", height: "100%", filter: "drop-shadow(0 6px 16px rgba(0,0,0,0.2))" }} />
+        <img src={branding.circleLogoPath} alt="Logo" style={{ width: "100%", height: "100%", filter: "drop-shadow(0 6px 16px rgba(0,0,0,0.2))" }} />
       </Box>
 
       <Box style={{
@@ -78,7 +86,7 @@ export const MascotSectionSchoolaanzee = ({ position }: Props) => {
         animation: "logoRotateFloat2 60s linear infinite",
         opacity: 1,
       }}>
-        <img src={saz1Logo} alt="Logo" style={{ width: "100%", height: "100%", filter: "drop-shadow(0 6px 16px rgba(0,0,0,0.2))" }} />
+        <img src={branding.circleLogoPath} alt="Logo" style={{ width: "100%", height: "100%", filter: "drop-shadow(0 6px 16px rgba(0,0,0,0.2))" }} />
       </Box>
 
       <Box style={{
@@ -87,7 +95,7 @@ export const MascotSectionSchoolaanzee = ({ position }: Props) => {
         animation: "logoRotateFloat3 45s linear infinite",
         opacity: 1,
       }}>
-        <img src={saz1Logo} alt="Logo" style={{ width: "100%", height: "100%", filter: "drop-shadow(0 6px 16px rgba(0,0,0,0.2))" }} />
+        <img src={branding.circleLogoPath} alt="Logo" style={{ width: "100%", height: "100%", filter: "drop-shadow(0 6px 16px rgba(0,0,0,0.2))" }} />
       </Box>
 
       {/* Logo-vormige diamant blokjes met sterkere kleuren - meer verspreid */}
@@ -98,7 +106,7 @@ export const MascotSectionSchoolaanzee = ({ position }: Props) => {
       }}>
         <svg width="90" height="90" viewBox="0 0 100 100">
           <path d="M50 10 L90 50 L50 90 L10 50 Z" 
-                fill={`${BRAND.red}CC`}
+                fill={`${branding.red}CC`}
                 filter="drop-shadow(0 8px 20px rgba(230,57,70,0.4))"/>
         </svg>
       </Box>
@@ -110,7 +118,7 @@ export const MascotSectionSchoolaanzee = ({ position }: Props) => {
       }}>
         <svg width="110" height="110" viewBox="0 0 100 100">
           <path d="M50 10 L90 50 L50 90 L10 50 Z" 
-                fill={`${BRAND.yellow}D9`}
+                fill={`${branding.yellow}D9`}
                 filter="drop-shadow(0 8px 20px rgba(255,165,0,0.4))"/>
         </svg>
       </Box>
@@ -122,7 +130,7 @@ export const MascotSectionSchoolaanzee = ({ position }: Props) => {
       }}>
         <svg width="70" height="70" viewBox="0 0 100 100">
           <path d="M50 10 L90 50 L50 90 L10 50 Z" 
-                fill={`${BRAND.cyan}D9`}
+                fill={`${branding.cyan}D9`}
                 filter="drop-shadow(0 6px 18px rgba(93,173,226,0.5))"/>
         </svg>
       </Box>
@@ -134,7 +142,7 @@ export const MascotSectionSchoolaanzee = ({ position }: Props) => {
       }}>
         <svg width="85" height="85" viewBox="0 0 100 100">
           <path d="M50 10 L90 50 L50 90 L10 50 Z" 
-                fill={`${BRAND.logoGreen}CC`}
+                fill={`${branding.logoGreen}CC`}
                 filter="drop-shadow(0 6px 18px rgba(92,184,92,0.4))"/>
         </svg>
       </Box>
@@ -147,7 +155,7 @@ export const MascotSectionSchoolaanzee = ({ position }: Props) => {
       }}>
         <svg width="55" height="55" viewBox="0 0 100 100">
           <path d="M50 10 L90 50 L50 90 L10 50 Z" 
-                fill={`${BRAND.cyan}C2`}
+                fill={`${branding.cyan}C2`}
                 filter="drop-shadow(0 4px 12px rgba(93,173,226,0.35))"/>
         </svg>
       </Box>
@@ -159,7 +167,7 @@ export const MascotSectionSchoolaanzee = ({ position }: Props) => {
       }}>
         <svg width="65" height="65" viewBox="0 0 100 100">
           <path d="M50 10 L90 50 L50 90 L10 50 Z" 
-                fill={`${BRAND.red}BF`}
+                fill={`${branding.red}BF`}
                 filter="drop-shadow(0 4px 12px rgba(230,57,70,0.35))"/>
         </svg>
       </Box>
@@ -172,7 +180,7 @@ export const MascotSectionSchoolaanzee = ({ position }: Props) => {
       }}>
         <svg width="40" height="40" viewBox="0 0 40 40">
           <path d="M20 0 L24 16 L40 20 L24 24 L20 40 L16 24 L0 20 L16 16 Z" 
-                fill={`${BRAND.yellow}CC`}
+                fill={`${branding.yellow}CC`}
                 filter="drop-shadow(0 4px 8px rgba(255,165,0,0.35))"/>
         </svg>
       </Box>
@@ -183,7 +191,7 @@ export const MascotSectionSchoolaanzee = ({ position }: Props) => {
       }}>
         <svg width="35" height="35" viewBox="0 0 40 40">
           <path d="M20 0 L24 16 L40 20 L24 24 L20 40 L16 24 L0 20 L16 16 Z" 
-                fill={`${BRAND.cyan}BF`}
+                fill={`${branding.cyan}BF`}
                 filter="drop-shadow(0 4px 8px rgba(93,173,226,0.35))"/>
         </svg>
       </Box>
@@ -194,7 +202,7 @@ export const MascotSectionSchoolaanzee = ({ position }: Props) => {
       }}>
         <svg width="30" height="30" viewBox="0 0 40 40">
           <path d="M20 0 L24 16 L40 20 L24 24 L20 40 L16 24 L0 20 L16 16 Z" 
-                fill={`${BRAND.logoGreen}D2`}
+                fill={`${branding.logoGreen}D2`}
                 filter="drop-shadow(0 4px 8px rgba(92,184,92,0.35))"/>
         </svg>
       </Box>
@@ -203,23 +211,23 @@ export const MascotSectionSchoolaanzee = ({ position }: Props) => {
       <Box style={{
         position: "absolute", top: "32%", right: "45%",
         width: 12, height: 12, borderRadius: "50%",
-        background: `${BRAND.red}E6`,
+        background: `${branding.red}E6`,
         animation: "floatDot1 24s ease-in-out infinite",
-        boxShadow: `0 4px 12px ${BRAND.red}60`
+        boxShadow: `0 4px 12px ${branding.red}60`
       }} />
       <Box style={{
         position: "absolute", bottom: "40%", left: "12%",
         width: 15, height: 15, borderRadius: "50%",
-        background: `${BRAND.yellow}E6`,
+        background: `${branding.yellow}E6`,
         animation: "floatDot2 27s ease-in-out infinite",
-        boxShadow: `0 4px 12px ${BRAND.yellow}55`
+        boxShadow: `0 4px 12px ${branding.yellow}55`
       }} />
       <Box style={{
         position: "absolute", top: "55%", right: "30%",
         width: 10, height: 10, borderRadius: "50%",
-        background: `${BRAND.logoGreen}E6`,
+        background: `${branding.logoGreen}E6`,
         animation: "floatDot3 21s ease-in-out infinite",
-        boxShadow: `0 4px 12px ${BRAND.logoGreen}60`
+        boxShadow: `0 4px 12px ${branding.logoGreen}60`
       }} />
 
       {/* inhoud */}
@@ -250,7 +258,7 @@ export const MascotSectionSchoolaanzee = ({ position }: Props) => {
           <Box
             style={{
               padding: "36px 52px",
-              background: BRAND.white,
+              background: branding.white,
               borderRadius: 18,
               boxShadow: "0 18px 60px rgba(0,0,0,0.18)",
               display: "flex",
@@ -260,8 +268,8 @@ export const MascotSectionSchoolaanzee = ({ position }: Props) => {
             }}
           >
             <img
-              src={sazLogo}
-              alt={BRAND.name}
+              src={branding.logoPath}
+              alt={branding.name}
               style={{ height: 80, width: "auto", display: "block" }}
             />
           </Box>
@@ -278,20 +286,20 @@ export const MascotSectionSchoolaanzee = ({ position }: Props) => {
             style={{
               fontSize: "clamp(2.2rem, 4.2vw, 3rem)",
               fontWeight: 900,
-              color: BRAND.white,
+              color: branding.white,
               letterSpacing: "-0.02em",
               marginBottom: 14,
               textShadow: "0 2px 8px rgba(0,0,0,0.2)",
             }}
           >
-            {BRAND.heading}
+            {branding.heading}
           </Text>
 
           <Text
             style={{
               fontSize: "clamp(1rem, 1.7vw, 1.15rem)",
               lineHeight: 1.75,
-              color: BRAND.white,
+              color: branding.white,
               opacity: 0.95,
               fontWeight: 450,
               margin: "0 auto 18px",
@@ -299,7 +307,7 @@ export const MascotSectionSchoolaanzee = ({ position }: Props) => {
               textShadow: "0 1px 4px rgba(0,0,0,0.15)",
             }}
           >
-            {BRAND.description}
+            {branding.description}
           </Text>
         </Box>
       </Flex>
