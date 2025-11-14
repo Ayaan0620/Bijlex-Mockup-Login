@@ -5,12 +5,25 @@ import { TopBar as TopBarNuovo } from "@/components/auth/Nuovo/TopBarNuovo";
 import { MascotSectionNuovo } from "@/components/auth/Nuovo/MascotSectionNuovo";
 import { TopBar as TopBarYuverta } from "@/components/auth/Yuverta/TopBarYuverta";
 import { MascotSectionYuverta } from "@/components/auth/Yuverta/MascotSectionYuverta";
+import { TopBarSchoolaanzee } from "@/components/auth/Schoolaanzee/TopBarSchoolaanzee";
+import { MascotSectionSchoolaanzee } from "@/components/auth/Schoolaanzee/MascotSectionSchoolaanzee";
 
 export const LoginForm = () => {
   const school = detectSchool();
 
-  const TopBar = school === 'yuverta' ? TopBarNuovo : TopBarYuverta;
-  const MascotSection = school === 'yuverta' ? MascotSectionNuovo : MascotSectionYuverta;
+  let TopBar, MascotSection;
+
+  if (school === 'yuverta') {
+    TopBar = TopBarYuverta;
+    MascotSection = MascotSectionYuverta;
+  } else if (school === 'scholanzee') {
+    TopBar = TopBarSchoolaanzee;
+    MascotSection = MascotSectionSchoolaanzee;
+  } else {
+    // Default to nuovo
+    TopBar = TopBarNuovo;
+    MascotSection = MascotSectionNuovo;
+  }
 
   return (
     <>

@@ -1,4 +1,4 @@
-import { Flex, Paper, Text, Box, Button } from "@mantine/core";
+import { Flex, Paper, Text, Box } from "@mantine/core";
 
 import mascotLeft from "@/assets/images/mascot/mascot-waving-left.svg";
 import mascotRight from "@/assets/images/mascot/mascot-waving-right.svg";
