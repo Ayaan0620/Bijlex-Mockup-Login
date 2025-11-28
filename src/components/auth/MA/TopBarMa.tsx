@@ -3,6 +3,7 @@ import { Flex, Paper, Text, Box } from "@mantine/core";
 import mascotLeft from "@/assets/images/mascot/mascot-waving-left.svg";
 import mascotRight from "@/assets/images/mascot/mascot-waving-right.svg";
 import MaLogo from "@/assets/Ma/MaLogo.png";
+import bijlexLogo from "@/assets/bijlexLogo.webp";
 
 const mascot = {
   left: mascotLeft,
@@ -23,6 +24,73 @@ const branding = {
   heading: "Moderne Weboplossingen",
   description:
     "Wij ontwikkelen professionele websites en webapplicaties die perfect aansluiten bij jouw bedrijf. Met een focus op gebruiksvriendelijkheid en moderne technologie zorgen we voor een online aanwezigheid waar je trots op kunt zijn.",
+};
+
+export const TopBar = () => {
+  return (
+    <Box
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: 'clamp(60px, 10vw, 70px)',
+        background: branding.black,
+        borderBottom: `1px solid ${branding.grey}`,
+        zIndex: 100,
+        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
+      }}
+    >
+      <Flex
+        align="center"
+        justify="space-between"
+        h="100%"
+        px={{ base: 'sm', md: 'xl' }}
+      >
+        <Box
+          style={{
+            position: 'relative',
+            padding: 'clamp(6px 12px, 2vw, 8px 16px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Box
+            style={{
+              position: 'absolute',
+              width: 'clamp(90px, 15vw, 120px)',
+              height: 'clamp(42px, 7vw, 55px)',
+              background: `linear-gradient(135deg, ${branding.magenta}20 0%, ${branding.magentaLight}15 50%, ${branding.white} 100%)`,
+              borderRadius: '999px',
+              zIndex: -1,
+              boxShadow: `0 0 25px ${branding.magenta}30, 0 4px 12px rgba(0, 0, 0, 0.15)`,
+            }}
+          />
+
+          <img
+            src={MaLogo}
+            alt="Ma-Web Logo"
+            style={{
+              height: 'clamp(24px, 4vw, 30px)',
+              width: 'auto',
+              position: 'relative',
+              display: 'block',
+            }}
+          />
+        </Box>
+
+        <img
+          src={bijlexLogo}
+          alt="Bijlex Logo"
+          style={{
+            height: 'clamp(40px, 7vw, 60px)',
+            width: 'auto',
+          }}
+        />
+      </Flex>
+    </Box>
+  );
 };
 
 interface Props {
