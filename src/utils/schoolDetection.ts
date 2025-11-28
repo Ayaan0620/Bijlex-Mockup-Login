@@ -1,7 +1,7 @@
 /**
  * School type definition
  */
-export type School = 'nuovo' | 'yuverta' | 'scholanzee';
+export type School = 'nuovo' | 'yuverta' | 'schoolanzee'| 'ma';
 
 /**
  * Detects which school to display based on URL path or hostname
@@ -21,12 +21,14 @@ export const detectSchool = (): School => {
   // Check URL path first
   if (path.includes('/yuverta')) return 'yuverta';
   if (path.includes('/nuovo')) return 'nuovo';
-  if (path.includes('/scholanzee')) return 'scholanzee';
+  if (path.includes('/schoolanzee')) return 'schoolanzee';
+  if (path.includes('/ma')) return 'ma';
 
   // Check hostname subdomain or full domain
   if (hostname.includes('yuverta')) return 'yuverta';
   if (hostname.includes('nuovo')) return 'nuovo';
-  if (hostname.includes('scholanzee')) return 'scholanzee';
+  if (hostname.includes('schoolanzee')) return 'schoolanzee';
+  if (hostname.includes('ma')) return 'ma';
 
   // Default to nuovo
   return 'nuovo';

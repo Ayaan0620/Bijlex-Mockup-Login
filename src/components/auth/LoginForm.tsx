@@ -7,6 +7,8 @@ import { TopBar as TopBarYuverta } from "@/components/auth/Yuverta/TopBarYuverta
 import { MascotSectionYuverta } from "@/components/auth/Yuverta/MascotSectionYuverta";
 import { TopBarSchoolaanzee } from "@/components/auth/Schoolaanzee/TopBarSchoolaanzee";
 import { MascotSectionSchoolaanzee } from "@/components/auth/Schoolaanzee/MascotSectionSchoolaanzee";
+import { TopBar as TopBarMa } from "@/components/auth/MA/TopBarMa";
+import { MascotSectionMaWeb } from "@/components/auth/MA/MascotSectionMa";
 
 export const LoginForm = () => {
   const school = detectSchool();
@@ -16,11 +18,17 @@ export const LoginForm = () => {
   if (school === 'yuverta') {
     TopBar = TopBarYuverta;
     MascotSection = MascotSectionYuverta;
-  } else if (school === 'scholanzee') {
+  } else if (school === 'schoolanzee') {
     TopBar = TopBarSchoolaanzee;
     MascotSection = MascotSectionSchoolaanzee;
+  } else if (school === 'nuovo') {
+    TopBar = TopBarNuovo;
+    MascotSection = MascotSectionNuovo;
+  } else if (school === 'ma') {
+    TopBar = TopBarMa;
+    MascotSection = MascotSectionMaWeb;
   } else {
-    // Default to nuovo
+    // Default fallback
     TopBar = TopBarNuovo;
     MascotSection = MascotSectionNuovo;
   }
