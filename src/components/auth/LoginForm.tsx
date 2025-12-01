@@ -9,6 +9,8 @@ import { TopBarSchoolaanzee } from "@/components/auth/Schoolaanzee/TopBarSchoola
 import { MascotSectionSchoolaanzee } from "@/components/auth/Schoolaanzee/MascotSectionSchoolaanzee";
 import { TopBar as TopBarMa } from "@/components/auth/MA/TopBarMa";
 import { MascotSectionMaWeb } from "@/components/auth/MA/MascotSectionMa";
+import { TopBarCasparus } from "@/components/auth/casparus/TopBarCasparus";
+import { MascotSectionCasparus } from "@/components/auth/casparus/MascotSectionCasparus";
 
 export const LoginForm = () => {
   const school = detectSchool();
@@ -27,10 +29,13 @@ export const LoginForm = () => {
   } else if (school === 'ma') {
     TopBar = TopBarMa;
     MascotSection = MascotSectionMaWeb;
+  } else if (school === 'casparus') {
+    TopBar = TopBarCasparus;
+    MascotSection = MascotSectionCasparus;
   } else {
     // Default fallback
-    TopBar = TopBarNuovo;
-    MascotSection = MascotSectionNuovo;
+    TopBar = TopBarCasparus;
+    MascotSection = MascotSectionCasparus;
   }
 
   return (
