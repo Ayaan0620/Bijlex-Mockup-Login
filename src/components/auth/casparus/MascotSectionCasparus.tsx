@@ -16,7 +16,8 @@ const branding = {
   darkPurple: '#4A3470',
   lightPurple: '#9B7BC6',
   redAccent: '#E63946',
-  blueAccent: '#60a9d6ff',
+  blueAccent: '#4169E1',
+  originalBlueAccent: '#60a9d6ff',
   greenAccent: '#2A9D8F',
   orangeAccent: '#F77F00',
   yellowAccent: '#FFB703',
@@ -259,7 +260,7 @@ export const MascotSectionCasparus = ({ position }: Props) => {
             <img src={branding.logoPath} alt={`${branding.name} Logo`} style={{ width: 'clamp(160px, 16vw, 300px)', height: 'auto', position: 'relative', display: 'block', filter: 'brightness(1.05) contrast(1.05) drop-shadow(0 4px 16px rgba(0,0,0,0.18))' }} />
           </Box>
         </Flex>
-        <Text component="h2" style={{ fontSize: 'clamp(1.5rem, 4vw, 3.2rem)', color: branding.blueAccent, textAlign: 'center', fontWeight: 800, fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif", letterSpacing: '-0.03em', marginBottom: 'clamp(0.5rem, 2vw, 1.5rem)', filter: `drop-shadow(0 2px 28px rgba(0, 0, 0, 0.42)) drop-shadow(0 0 48px ${branding.blueAccent}52)`, padding: '0 1rem' }}>
+        <Text component="h2" style={{ fontSize: 'clamp(1.5rem, 4vw, 3.2rem)', color: branding.originalBlueAccent, textAlign: 'center', fontWeight: 800, fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif", letterSpacing: '-0.03em', marginBottom: 'clamp(0.5rem, 2vw, 1.5rem)', filter: `drop-shadow(0 2px 28px rgba(0, 0, 0, 0.42)) drop-shadow(0 0 48px ${branding.originalBlueAccent}52)`, padding: '0 1rem' }}>
           Beter leren doe je{' '}
           <span style={{ color: '#ffffffff', filter: `drop-shadow(0 0 35px #6BA3D850)` }}>Bijlex</span>
         </Text>
