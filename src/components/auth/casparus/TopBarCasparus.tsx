@@ -35,10 +35,10 @@ export const TopBarCasparus = () => {
           <Box
             style={{
               position: 'absolute',
-              width: 'clamp(95px, 14vw, 125px)',
-              height: 'clamp(40px, 7vw, 52px)',
+              width: 'clamp(75px, 14vw, 89px)',
+              height: 'clamp(70px, 7vw, 52px)',
               background: 'linear-gradient(135deg, #E8DCFF 0%, #F5F0FF 50%, #FFFFFF 100%)',
-              borderRadius: '999px',
+              borderRadius: '0px',
               transform: 'rotate(0deg)',
               zIndex: -1,
               boxShadow: '0 0 25px rgba(107, 76, 154, 0.25), 0 4px 12px rgba(0, 0, 0, 0.15)',
