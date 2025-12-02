@@ -704,12 +704,12 @@ export const MascotSectionMaWeb = ({ position }: Props) => {
               src={MaLogo}
               alt={branding.name}
               style={{ 
-                width: "clamp(400px, 40vw, 500px)",
-                height: "clamp(225px, 22.5vw, 275px)",
+                width: "clamp(390px, 78vw, 390px)",
+                height: "clamp(292.5px, 29.25vw, 357.5px)",
                 objectFit: "contain",
                 display: "block",
                 filter: "brightness(0) saturate(100%) invert(13%) sepia(94%) saturate(6472%) hue-rotate(302deg) brightness(99%) contrast(105%)",
-                padding: "35px",
+                padding: "46px",
               }}
             />
           </Box>
