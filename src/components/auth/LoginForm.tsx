@@ -11,6 +11,8 @@ import { TopBar as TopBarMa } from "@/components/auth/MA/TopBarMa";
 import { MascotSectionMaWeb } from "@/components/auth/MA/MascotSectionMa";
 import { TopBarCasparus } from "@/components/auth/casparus/TopBarCasparus";
 import { MascotSectionCasparus } from "@/components/auth/casparus/MascotSectionCasparus";
+import { MascotSectionVierTaal } from "@/components/auth/VierTaal/MascotSectionVierTaal";
+import TopBarVierTaal from "./VierTaal/TopBarVierTaal";
 
 export const LoginForm = () => {
   const school = detectSchool();
@@ -32,6 +34,9 @@ export const LoginForm = () => {
   } else if (school === 'casparus') {
     TopBar = TopBarCasparus;
     MascotSection = MascotSectionCasparus;
+  } else if (school === 'viertaal') {
+    TopBar = TopBarVierTaal;
+    MascotSection = MascotSectionVierTaal;
   } else {
     // Default fallback
     TopBar = TopBarCasparus;
