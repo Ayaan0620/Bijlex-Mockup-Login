@@ -13,6 +13,8 @@ import { TopBarCasparus } from "@/components/auth/casparus/TopBarCasparus";
 import { MascotSectionCasparus } from "@/components/auth/casparus/MascotSectionCasparus";
 import { MascotSectionVierTaal } from "@/components/auth/VierTaal/MascotSectionVierTaal";
 import TopBarVierTaal from "./VierTaal/TopBarVierTaal";
+import { TopBarSintBonifatius } from "@/components/auth/SintBonifatius/TopBarSintBonifatiusCollege";
+import { MascotSectionSintBonifatiusCollege } from "@/components/auth/SintBonifatius/SintBonifatiusCollege";
 
 export const LoginForm = () => {
   const school = detectSchool();
@@ -37,8 +39,10 @@ export const LoginForm = () => {
   } else if (school === 'viertaal') {
     TopBar = TopBarVierTaal;
     MascotSection = MascotSectionVierTaal;
+  } else if (school === 'stbonifatius') {
+    TopBar = TopBarSintBonifatius;
+    MascotSection = MascotSectionSintBonifatiusCollege;
   } else {
-    // Default fallback
     TopBar = TopBarCasparus;
     MascotSection = MascotSectionCasparus;
   }
