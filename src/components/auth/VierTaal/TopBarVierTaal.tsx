@@ -1,7 +1,6 @@
 import { Box, Flex } from "@mantine/core";
 import VierTaalLogo from "../../../assets/VierTaal/VierTaalLogo.jpeg";
 import bijlexLogo from "../../../assets/bijlexLogo.webp";
-import hoekblock from "../../../assets/VierTaal/hoekblock.png";
 
 const TopBarVierTaal = () => {
   return (
