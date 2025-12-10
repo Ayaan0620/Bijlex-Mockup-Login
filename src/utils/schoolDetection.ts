@@ -35,9 +35,8 @@ export const detectSchool = (): School => {
   if (hostname.includes('ma')) return 'ma';
   if (hostname.includes('casparus')) return 'casparus';
   if (hostname.includes('viertaal')) return 'viertaal';
-  if (hostname.includes('stbonifatius')) return 'stbonifatius';
-  if (hostname.includes('boni.nl')) return 'stbonifatius';
-  if (hostname.includes('bonifatius')) return 'stbonifatius';
+  if (hostname.includes('boni')) return 'stbonifatius';
+
 
   // Default to casparus
   return 'casparus';
