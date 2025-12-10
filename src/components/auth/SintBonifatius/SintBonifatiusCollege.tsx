@@ -226,22 +226,6 @@ export const MascotSectionSintBonifatiusCollege = ({ position }: Props) => {
         zIndex: 2,
       }}>
         <svg width="75" height="75" viewBox="0 0 100 100">
-          {/* Orange circle */}
-          <circle cx="35" cy="55" r="10" 
-                  fill={`${branding.orange}FF`}
-                  filter="drop-shadow(0 4px 12px rgba(255,105,0,0.3))"/>
-          {/* Check/root path */}
-          <path d="M 25 50 L 35 65 L 65 30" 
-                stroke={`${branding.white}E6`}
-                strokeWidth="6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="none"
-                filter="drop-shadow(0 6px 16px rgba(255,255,255,0.3))"/>
-          {/* White circle */}
-          <circle cx="65" cy="30" r="10" 
-                  fill={`${branding.white}FF`}
-                  filter="drop-shadow(0 4px 12px rgba(255,255,255,0.3))"/>
         </svg>
       </Box>
 
@@ -381,25 +365,6 @@ export const MascotSectionSintBonifatiusCollege = ({ position }: Props) => {
                    filter="drop-shadow(0 4px 12px rgba(255,105,0,0.25))"/>
         </svg>
       </Box>
-
-      {/* BOTTOM CENTER AREA */}
-
-      {/* Pencil - bottom left */}
-      <Box style={{
-        position: "absolute", bottom: "22%", left: "20%",
-        width: 80, height: 16,
-        animation: "rotatePencil2 45s ease-in-out infinite",
-        zIndex: 2,
-      }}>
-        <svg width="80" height="16" viewBox="0 0 100 20">
-          <rect x="0" y="5" width="85" height="10" rx="2" 
-                fill={`${branding.purpleLight}E6`}
-                filter="drop-shadow(0 4px 12px rgba(184,124,232,0.3))"/>
-          <polygon points="85,5 85,15 95,10" 
-                   fill={`${branding.purple}FF`}/>
-        </svg>
-      </Box>
-
       {/* Triangle - bottom left */}
       <Box style={{
         position: "absolute", bottom: "8%", left: "28%",
